@@ -10,4 +10,8 @@
     <string name="dangky">Đăng ký</string>
     <string name="nam">Nam</string>
     <string name="nu">Nữ</string>
+    <string name="loinhaptendangnhap"> Vui lòng nhập tên đăng nhập !</string>
+    <string name="loinhapmatkhau"> Vui lòng nhập mật khẩu! </string>
+    <string name="themthanhcong"> Thêm thành công! </string>
+    <string name="themthatbai"> Thêm thất bại! </string>
 </resources>

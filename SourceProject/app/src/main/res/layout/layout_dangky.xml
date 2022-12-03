@@ -33,6 +33,7 @@
         >
 
         <EditText
+            android:id="@+id/edTenDangNhapDK"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -51,6 +52,7 @@
             android:textColorHint="#757575"
            />
         <EditText
+            android:id="@+id/edFullName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -70,6 +72,7 @@
             />
 
         <EditText
+            android:id="@+id/edMatKhauDK"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -86,16 +89,20 @@
             android:textColor="@color/gray"
             android:textColorHint="#757575" />
         <RadioGroup
+            android:id="@+id/rgGioiTinh"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             >
             <RadioButton
+                android:id="@+id/rdNam"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/nam"
+                android:checked="true"
                 />
             <RadioButton
+                android:id="@+id/rdNu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/nu"
@@ -103,6 +110,7 @@
         </RadioGroup>
 
         <EditText
+            android:id="@+id/edNgaySinhDK"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -119,6 +127,7 @@
             android:textColorHint="#757575" />
 
         <EditText
+            android:id="@+id/edCCCDDK"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -141,6 +150,7 @@
             >
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnDongYDK"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -153,6 +163,7 @@
 
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnThoat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
