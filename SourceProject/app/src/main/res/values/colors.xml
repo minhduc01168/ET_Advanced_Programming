@@ -10,4 +10,5 @@
     <color name="gray">#CCC</color>
     <color name="orangeButton">#EF6C00</color>
     <color name="greenButton">#43A047</color>
+    <color name="backgroundtoolbar">#d77a09</color>
 </resources>

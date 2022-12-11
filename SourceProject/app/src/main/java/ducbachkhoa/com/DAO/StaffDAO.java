@@ -2,6 +2,7 @@ package ducbachkhoa.com.DAO;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import ducbachkhoa.com.DTO.StaffDTO;
@@ -11,7 +12,7 @@ public class StaffDAO {
     SQLiteDatabase database;
     public StaffDAO(Context context){
         CreateDatabase createDatabase = new CreateDatabase(context);
-        database = createDatabase.open();
+        database = createDatabase.getWritableDatabase();
     }
     public long AddStaff(StaffDTO staffDTO){
         ContentValues contentValues =new ContentValues();
@@ -24,5 +25,26 @@ public class StaffDAO {
         //bien ktra de xem them thanh cong khong?
         long kiemtra = database.insert(CreateDatabase.TB_STAFF, null, contentValues);
         return kiemtra;
+    }
+    public boolean CheckStaff(){
+        String truyvan = "SELECT *FROM " + CreateDatabase.TB_STAFF;
+        Cursor cursor = database.rawQuery(truyvan,null);
+        if(cursor.getCount() != 0){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    public boolean CheckDangNhap(String tendangnhap, String matkhau){
+        String truyvan = "SELECT * FROM " + CreateDatabase.TB_STAFF + " WHERE " + CreateDatabase.TB_STAFF_NAMEUSER + " = '" +tendangnhap
+                + "' AND " + CreateDatabase.TB_STAFF_PASSWORD + " = '" + matkhau + "'";
+        Cursor cursor = database.rawQuery(truyvan,null);
+        if(cursor.getCount() != 0){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }

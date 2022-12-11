@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="190dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/backgroundheader"
+    >
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/logonavigation"
+        android:layout_width="76dp"
+        android:layout_height="76dp"
+        android:src="@drawable/anh_nen_app"
+        android:layout_marginLeft="24dp">
+
+    </de.hdodenhof.circleimageview.CircleImageView>
+
+</RelativeLayout>
