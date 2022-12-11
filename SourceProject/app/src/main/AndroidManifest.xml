@@ -31,6 +31,9 @@
         <activity android:name=".TrangChuActivity" android:theme="@style/Theme.Design.NoActionBar">
 
         </activity>
+        <activity android:name=".AddTableActivity" android:theme="@style/PopUpActivity">
+
+        </activity>
     </application>
 
 </manifest>

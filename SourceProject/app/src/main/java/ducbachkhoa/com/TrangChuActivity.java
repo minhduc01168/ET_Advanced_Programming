@@ -10,14 +10,20 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.internal.NavigationMenu;
 import com.google.android.material.navigation.NavigationView;
+
+import ducbachkhoa.com.FragmentApp.HienThiBanFagment;
 
 public class TrangChuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
+    FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,11 +53,30 @@ public class TrangChuActivity extends AppCompatActivity implements NavigationVie
         drawerToggle.syncState();
 
         navigationView.setItemIconTintList(null);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        fragmentManager = getSupportFragmentManager();
+        FragmentTransaction tranHienThiBan = fragmentManager.beginTransaction();
+        HienThiBanFagment hienThiBanFagment = new HienThiBanFagment();
+        tranHienThiBan.replace(R.id.content, hienThiBanFagment);
+        tranHienThiBan.commit();
 
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        switch (id){
+            case R.id.itTrangChu:
+                FragmentTransaction tranHienThiBan = fragmentManager.beginTransaction();
+                HienThiBanFagment hienThiBanFagment = new HienThiBanFagment();
+                tranHienThiBan.replace(R.id.content, hienThiBanFagment);
+                tranHienThiBan.commit();
+
+                item.setChecked(true);
+                drawerLayout.closeDrawers();
+                ;break;
+        }
         return false;
     }
 }

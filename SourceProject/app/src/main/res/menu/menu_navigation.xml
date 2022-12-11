@@ -5,6 +5,7 @@
         android:checkableBehavior="single"
         >
         <item
+            android:id="@+id/itTrangChu"
             android:title="@string/trangchu"
             android:icon="@drawable/trangchu"
             />

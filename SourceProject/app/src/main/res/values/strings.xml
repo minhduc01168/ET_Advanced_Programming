@@ -23,4 +23,6 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="Mo">Mở</string>
     <string name="Dong">Đóng</string>
+    <string name="ThemBan">Thêm bàn</string>
+    <string name="TenBan">Tên bàn</string>
 </resources>
