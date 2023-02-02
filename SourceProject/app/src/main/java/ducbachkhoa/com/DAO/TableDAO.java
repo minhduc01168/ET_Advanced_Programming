@@ -18,10 +18,6 @@ public class TableDAO {
         contentValues.put(CreateDatabase.TB_TABLEDRINK_STATUS, "false");
 
         long kiemtra = database.insert(CreateDatabase.TB_TABLEDRINK,null, contentValues);
-        if(kiemtra !=0 ){
-            return true;
-        }else {
-            return false;
-        }
+        return kiemtra != 0;
     }
 }

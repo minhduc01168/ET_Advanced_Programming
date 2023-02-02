@@ -24,23 +24,8 @@ import ducbachkhoa.com.R;
 
 public class HienThiBanFagment extends Fragment {
 
-    //public static int RESQUEST_CODE_THEN = 111;
+    public static int RESQUEST_CODE_THEN = 111;
 
-    private final ActivityResultLauncher<Intent> mActivityResultLauncher = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
-                @Override
-                public void onActivityResult(ActivityResult result) {
-                    if(result.getResultCode() == Activity.RESULT_OK){
-                        Intent intent = result.getData();
-                        boolean kiemtra = intent.getBooleanExtra("ketquathem", false);
-                        if(kiemtra){
-                            Toast.makeText(getActivity(),getResources().getString(R.string.themthanhcong),Toast.LENGTH_SHORT).show();
-                        }else {
-                            Toast.makeText(getActivity(),getResources().getString(R.string.themthatbai),Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                }
-            });
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -60,29 +45,25 @@ public class HienThiBanFagment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        switch (id){
-            case R.id.itThemban:
+        if(id == R.id.itThemban){
                 Intent iThemban = new Intent(getActivity(), AddTableActivity.class);
-                //startActivityForResult(iThemban, RESQUEST_CODE_THEN);
-                mActivityResultLauncher.launch(iThemban);
-                ;break;
+                startActivityForResult(iThemban, RESQUEST_CODE_THEN);
         }
         return true;
     }
 
-    //  @Override
-//    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if(requestCode == RESQUEST_CODE_THEN){
-//            if(resultCode == Activity.RESULT_OK){
-//                Intent intent = data;
-//                boolean kiemtra = intent.getBooleanExtra("KetquaThem",false);
-//                if(kiemtra){
-//                    Toast.makeText(getActivity(),getResources().getString(R.string.themthanhcong),Toast.LENGTH_SHORT).show();
-//                }else {
-//                    Toast.makeText(getActivity(),getResources().getString(R.string.themthatbai),Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        }
-//    }
+      @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == RESQUEST_CODE_THEN){
+            if(resultCode == Activity.RESULT_OK){
+                boolean kiemtra = data.getBooleanExtra("KetquaThem",false);
+                if(kiemtra){
+                    Toast.makeText(getActivity(),getResources().getString(R.string.themthanhcong),Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(getActivity(),getResources().getString(R.string.themthatbai),Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    }
 }

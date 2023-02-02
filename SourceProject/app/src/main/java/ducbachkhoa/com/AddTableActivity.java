@@ -27,6 +27,7 @@ public class AddTableActivity extends AppCompatActivity implements View.OnClickL
         btnDongYThemBan = this.<Button> findViewById(R.id.btnDongYThemBan);
 
         tableDAO = new TableDAO(this);
+        btnDongYThemBan.setOnClickListener(this);
 
     }
 
@@ -37,7 +38,7 @@ public class AddTableActivity extends AppCompatActivity implements View.OnClickL
             boolean kiemtra = tableDAO.AddTable(sNameTable);
             Intent intent = new Intent();
             intent.putExtra("ketquathem", kiemtra);
-            setResult(Activity.RESULT_OK,intent);
+            setResult(Activity.RESULT_OK, intent);
             finish();
         }
     }
