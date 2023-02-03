@@ -46,8 +46,8 @@ public class HienThiBanFagment extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if(id == R.id.itThemban){
-                Intent iThemban = new Intent(getActivity(), AddTableActivity.class);
-                startActivityForResult(iThemban, RESQUEST_CODE_THEN);
+            Intent iThemban = new Intent(getActivity(), AddTableActivity.class);
+            startActivityForResult(iThemban, RESQUEST_CODE_THEN);
         }
         return true;
     }
@@ -57,11 +57,11 @@ public class HienThiBanFagment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == RESQUEST_CODE_THEN){
             if(resultCode == Activity.RESULT_OK){
-                boolean kiemtra = data.getBooleanExtra("KetquaThem",false);
+                boolean kiemtra = data.getBooleanExtra("KetQuaThem",false);
                 if(kiemtra){
                     Toast.makeText(getActivity(),getResources().getString(R.string.themthanhcong),Toast.LENGTH_SHORT).show();
                 }else {
-                    Toast.makeText(getActivity(),getResources().getString(R.string.themthatbai),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), getResources().getString(R.string.themthatbai), Toast.LENGTH_SHORT).show();
                 }
             }
         }

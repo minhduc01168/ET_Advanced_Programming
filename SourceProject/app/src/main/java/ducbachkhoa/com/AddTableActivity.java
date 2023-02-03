@@ -37,7 +37,7 @@ public class AddTableActivity extends AppCompatActivity implements View.OnClickL
         if(sNameTable != null || sNameTable.equals("")){
             boolean kiemtra = tableDAO.AddTable(sNameTable);
             Intent intent = new Intent();
-            intent.putExtra("ketquathem", kiemtra);
+            intent.putExtra("KetQuaThem", kiemtra);
             setResult(Activity.RESULT_OK, intent);
             finish();
         }
