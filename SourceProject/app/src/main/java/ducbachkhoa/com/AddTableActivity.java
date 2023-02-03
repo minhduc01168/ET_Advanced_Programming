@@ -34,12 +34,14 @@ public class AddTableActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View view) {
         String sNameTable = edAddNameTable.getText().toString();
-        if(sNameTable != null || sNameTable.equals("")){
+        if(sNameTable != null && sNameTable.length()>0){
             boolean kiemtra = tableDAO.AddTable(sNameTable);
             Intent intent = new Intent();
             intent.putExtra("KetQuaThem", kiemtra);
             setResult(Activity.RESULT_OK, intent);
             finish();
         }
+        else
+            finish();
     }
 }
