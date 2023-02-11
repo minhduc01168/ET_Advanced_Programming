@@ -41,7 +41,5 @@ public class AddTableActivity extends AppCompatActivity implements View.OnClickL
             setResult(Activity.RESULT_OK, intent);
             finish();
         }
-        else
-            finish();
     }
 }

@@ -10,6 +10,7 @@
             android:icon="@drawable/trangchu"
             />
         <item
+            android:id="@+id/itThucDon"
             android:title="@string/thucdon"
             android:icon="@drawable/menu"
             />

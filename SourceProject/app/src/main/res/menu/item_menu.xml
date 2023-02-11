@@ -4,5 +4,8 @@
         android:id="@+id/itThemban"
         android:title="@string/ThemBan"
         />
-
+    <item
+        android:id="@+id/itThemThucDon"
+        android:title="@string/themthucdon"
+        />
 </menu>

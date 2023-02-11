@@ -9,6 +9,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
@@ -19,18 +20,31 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.util.List;
+
 import ducbachkhoa.com.AddTableActivity;
+import ducbachkhoa.com.CustomAdapter.AdapterHienThiBanAn;
+import ducbachkhoa.com.DAO.TableDAO;
+import ducbachkhoa.com.DTO.TableDTO;
 import ducbachkhoa.com.R;
+import ducbachkhoa.com.TrangChuActivity;
 
 public class HienThiBanFagment extends Fragment {
 
     public static int RESQUEST_CODE_THEN = 111;
-
+    GridView gvhienthiban;
+    List<TableDTO> banAnDTOList;
+    TableDAO banAnDAO;
+    AdapterHienThiBanAn adapterHienThiBanAn;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.layout_hienthiban,container,false);
         setHasOptionsMenu(true);
+        ((TrangChuActivity) getActivity()).getSupportActionBar().setTitle(R.string.banan);
+        gvhienthiban = view.findViewById(R.id.gvHienBanAn);
+        banAnDAO = new TableDAO(getActivity());
+        HienThiDanhSachBanAn();
         return view;
     }
 
@@ -51,7 +65,12 @@ public class HienThiBanFagment extends Fragment {
         }
         return true;
     }
-
+    private void HienThiDanhSachBanAn(){
+        banAnDTOList = banAnDAO.LayTatCaBanAn();
+        adapterHienThiBanAn = new AdapterHienThiBanAn(getActivity(),R.layout.custom_layout_hienthiban,banAnDTOList);
+        gvhienthiban.setAdapter(adapterHienThiBanAn);
+        adapterHienThiBanAn.notifyDataSetChanged();
+    }
       @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -59,6 +78,7 @@ public class HienThiBanFagment extends Fragment {
             if(resultCode == Activity.RESULT_OK){
                 boolean kiemtra = data.getBooleanExtra("KetQuaThem",false);
                 if(kiemtra){
+                    HienThiDanhSachBanAn();
                     Toast.makeText(getActivity(),getResources().getString(R.string.themthanhcong),Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(getActivity(), getResources().getString(R.string.themthatbai), Toast.LENGTH_SHORT).show();

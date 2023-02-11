@@ -34,6 +34,13 @@
         <activity android:name=".AddTableActivity" android:theme="@style/PopUpActivity">
 
         </activity>
+        <activity android:name=".ThemThucDonActivity">
+
+        </activity>
+        <activity android:name=".ThemLoaiThucDonActivity"
+            android:theme="@style/PopUpActivity"
+            android:label="@string/loaithucdon">
+        </activity>
     </application>
 
 </manifest>

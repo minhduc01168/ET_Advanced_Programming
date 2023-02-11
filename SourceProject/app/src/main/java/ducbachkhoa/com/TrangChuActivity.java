@@ -18,6 +18,7 @@ import com.google.android.material.internal.NavigationMenu;
 import com.google.android.material.navigation.NavigationView;
 
 import ducbachkhoa.com.FragmentApp.HienThiBanFagment;
+import ducbachkhoa.com.FragmentApp.HienThiThucDonFragment;
 
 public class TrangChuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
@@ -75,7 +76,16 @@ public class TrangChuActivity extends AppCompatActivity implements NavigationVie
 
                 item.setChecked(true);
                 drawerLayout.closeDrawers();
-                ;break;
+                break;
+            case R.id.itThucDon:
+                FragmentTransaction tranHienThiThucDon = fragmentManager.beginTransaction();
+                HienThiThucDonFragment hienThiThucDonFragment = new HienThiThucDonFragment();
+                tranHienThiThucDon.replace(R.id.content, hienThiThucDonFragment);
+                tranHienThiThucDon.commit();
+
+                item.setChecked(true);
+                drawerLayout.closeDrawers();
+                break;
         }
         return false;
     }

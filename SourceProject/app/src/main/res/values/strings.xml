@@ -25,4 +25,12 @@
     <string name="Dong">Đóng</string>
     <string name="ThemBan">Thêm bàn</string>
     <string name="TenBan">Tên bàn</string>
+    <string name="themthucdon">Thêm thực đơn</string>
+    <string name="tenmonan">Tên món ăn</string>
+    <string name="giatien">Giá tiền</string>
+    <string name="banan">Bàn ăn</string>
+    <string name="loaithucdon">Loại thực đơn</string>
+    <string name="tenloai">Tên loại</string>
+    <string name="vuilongnhapdulieu">Vui lòng nhập dữ liệu !!!</string>
+    <string name="loithemmonan">Vui lòng nhập đầy đủ thông tin</string>
 </resources>
